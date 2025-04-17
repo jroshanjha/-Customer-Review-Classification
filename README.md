@@ -29,11 +29,22 @@ Python EDA , Stastics ,Data Cleaning and Preprocessing,  Supervised Learning , P
 
 
 
-# Created Environment Variables & activate:- 
+# Created Environment Variables & activate:-
+conda create -p venv python==3.10 -y 
+conda activate venv/
+
 ## Create Virtual Environments & activate:- 
 python -m venv my_code
 my_code/Scripts/activate
 
+
+# Install required packages:-
+pip install -r requirements.txt
+
+
+# 🧪 Testing API end points 
+<!-- 🧪 How to Use the API
+🧠 cURL example: -->
 
 curl -X POST http://localhost:5000/api/predict \
      -H "Content-Type: application/json" \
