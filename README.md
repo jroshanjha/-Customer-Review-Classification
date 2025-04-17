@@ -41,6 +41,16 @@ my_code/Scripts/activate
 # Install required packages:-
 pip install -r requirements.txt
 
+# Testing End Points:- 
+
+URL:- http://localhost:5000
+Text:- 
+
+"Terrible experience, I want a refund"
+"text": "I really loved this product!"
+"text":"this is good but Worst product ever"
+"Worst product ever but this is good"
+"This dog food is amazing!"
 
 # 🧪 Testing API end points 
 <!-- 🧪 How to Use the API
@@ -49,3 +59,29 @@ pip install -r requirements.txt
 curl -X POST http://localhost:5000/api/predict \
      -H "Content-Type: application/json" \
      -d '{"text": "I really loved this product!"}'
+
+
+POSTMAN :- 
+
+1. Create a new request
+2. Select POST as the request method
+3. Enter the URL of the API endpoint
+4. Select the JSON body option
+5. Enter the JSON data in the body field
+6. Click the Send button to send the request
+7. Check the response in the response body field
+# 🚀 API Endpoints
+// {
+// "review":{
+//   "text":"Terrible experience, I want a refund"}
+  
+// }
+
+// {"text": "I really loved this product!"}
+
+
+// {"text":"this is good but Worst product ever"}
+
+// {"text": "Worst product ever but this is good"}
+
+// {"text":"This dog food is amazing!"}
