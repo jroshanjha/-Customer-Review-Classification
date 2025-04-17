@@ -33,3 +33,8 @@ Python EDA , Stastics ,Data Cleaning and Preprocessing,  Supervised Learning , P
 ## Create Virtual Environments & activate:- 
 python -m venv my_code
 my_code/Scripts/activate
+
+
+curl -X POST http://localhost:5000/api/predict \
+     -H "Content-Type: application/json" \
+     -d '{"text": "I really loved this product!"}'
