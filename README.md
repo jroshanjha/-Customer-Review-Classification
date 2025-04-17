@@ -27,3 +27,9 @@ I have download dataset from Kaggle <br>
 # 🤖 Skills: 
 Python EDA , Stastics ,Data Cleaning and Preprocessing,  Supervised Learning , Product Review Sentiment Analysis , Model Building , Future engineer , Sentiment Analysis ,NLP , Predictive Modeling, Kaggle 
 
+
+
+# Created Environment Variables & activate:- 
+## Create Virtual Environments & activate:- 
+python -m venv my_code
+my_code/Scripts/activate
