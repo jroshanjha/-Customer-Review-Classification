@@ -55,8 +55,15 @@ def predict_sentiment(text):
         pass
 
     prediction = model.predict(X_new)[0]
+    # Predict probability
+    try:
+        probs = model.predict_proba(X_new)
+        confidence = round(probs[0][1] * 100, 2) if prediction == 1 else round(probs[0][0] * 100, 2)
+    except:
+        confidence = None  # some models like SVC with no `probability=True` won't support this
+        
     label = "Positive" if prediction == 1 else "Negative"
-    return label
+    return label , confidence
 
 def predict_sentiment1(text):
     
@@ -82,9 +89,9 @@ def predict():
     if request.method == 'POST':
         text1 = request.form['review']
         text = preprocess(text1)
-        prediction = predict_sentiment(text)
+        prediction, confidence = predict_sentiment(text)
         # prediction = model.predict([text])[0]
-        return render_template('index.html', review=text1, prediction=prediction)
+        return render_template('index.html', review=text1, prediction=prediction, confidence=confidence)
 
 @app.route('/api/',methods=['GET'])
 def api():
@@ -100,9 +107,9 @@ def api_predict():
     
     text = preprocess(data['text'])
     input_text = data['text']
-    prediction = predict_sentiment1(text)
+    prediction,confidence = predict_sentiment(text)
     # prediction = model.predict([text])[0]
-    return jsonify({"review": input_text, "prediction": prediction})
+    return jsonify({"review": input_text, "prediction": prediction, "confidence": confidence})
 
    # return jsonify({'sentiment': prediction})
     # if not text:

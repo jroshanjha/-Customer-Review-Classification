@@ -16,16 +16,31 @@
         </form>
 
         {% if prediction %}
-            <div class="alert alert-info mt-4 text-center">
-                <h4> Sentiment Analysis Result: </h4>
-                Review : {{review}} <br>
-                {%if prediction=='Positive'%}
-                <strong>Prediction:</strong> {{ prediction }}
-                {%else%}
-                <strong style='color:red;'>Prediction:</strong> {{ prediction }}
-                {%endif%}
-            </div>
+    <div class="alert alert-info mt-4 text-center">
+        <h4> Sentiment Analysis Result: </h4>
+        <p><strong>Review:</strong> {{ review }}</p>
+
+        {% if prediction == 'Positive' %}
+            <p>
+                <strong style='color:green;'>Prediction:</strong>
+                <span style='color:green; background-color:white;'>{{ prediction }}</span>
+            </p>
+        {% else %}
+            <p>
+                <strong style='color:red;'>Prediction:</strong>
+                <span style='color:red; background-color:white;'>{{ prediction }}</span>
+            </p>
         {% endif %}
+
+        {% if confidence %}
+            <p>
+                <strong>Confidence Score:</strong>
+                <span style='background-color: #e9ecef; padding: 2px 6px; border-radius: 4px;'>{{ confidence }}%</span>
+            </p>
+        {% endif %}
+    </div>
+{% endif %}
+
     </div>
 </body>
 </html>
