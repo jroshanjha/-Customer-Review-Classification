@@ -16,7 +16,7 @@ import logging
 logger = set_logger()
 # nltk.download('stopwords')
 # nltk.download('punkt')
-# nltk.download('punkt_tab')
+nltk.download('punkt_tab')
 # stop_words = set(stopwords.words('english'))
 
 # ✅ 1. Load the vectorizer

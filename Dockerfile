@@ -11,6 +11,9 @@ COPY . .
 RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Download NLTK data
+RUN python -m nltk.downloader punkt stopwords
+
 # Expose port (Flask defaults to 5000)
 EXPOSE 5000
 

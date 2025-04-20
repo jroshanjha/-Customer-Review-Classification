@@ -114,7 +114,7 @@ docker build -t jroshan/review-app .
 docker images
 
 # Rund Docker App
-docker run -p 8501:8501 jroshan/review-app
+docker run -p 5000:5000 jroshan/review-app
 
 
 ## docker port , host
