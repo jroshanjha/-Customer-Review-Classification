@@ -8,8 +8,7 @@ from nltk.stem.porter import PorterStemmer
 import numpy as np
 import logging
 from logged import set_logger
-from nltk_setup import download_nltk_data
-
+import nltk_setup
 # Logging
 logger = set_logger()
 logger.info("✅ Streamlit app started")
@@ -17,7 +16,6 @@ logger.info("✅ Streamlit app started")
 # NLTK Setup
 nltk.download('punkt', quiet=True)
 nltk.download('stopwords', quiet=True)
-download_nltk_data()
 
 # Load vectorizer & model
 with open('models/vectorizer.pkl', 'rb') as file:
