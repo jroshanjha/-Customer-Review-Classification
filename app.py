@@ -11,6 +11,9 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from nltk.tokenize import word_tokenize
 import re
 import streamlit as st
+from logged import set_logger
+import logging
+logger = set_logger()
 # nltk.download('stopwords')
 # nltk.download('punkt')
 # nltk.download('punkt_tab')
@@ -27,6 +30,10 @@ with open('models/model.pkl', 'rb') as file:
 
 # Applications 
 app = Flask(__name__)
+app.secret_key = 'your_secret_key'
+
+# Main code
+logger.info('Application started.')
 
 @app.route('/')
 def home():
@@ -144,4 +151,7 @@ def api_predict():
 #     return jsonify({"review": input_text, "prediction": label})
 
 if __name__ =='__main__':
+    #logging.info("Running the main function.")
+    logger.info("Running the main function.")
+    # print(logging.INFO, "✅ App started successfully.")
     app.run(debug=True,port=5000,host='0.0.0.0')

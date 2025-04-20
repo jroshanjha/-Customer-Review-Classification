@@ -42,6 +42,8 @@ my_code/Scripts/activate
 pip install -r requirements.txt
 
 # Testing End Points:- 
+code/Scripts/activate  
+python app.py
 
 URL:- http://localhost:5000
 Text:- 
@@ -85,3 +87,72 @@ POSTMAN :-
 // {"text": "Worst product ever but this is good"}
 
 // {"text":"This dog food is amazing!"}
+
+
+# Deployment Using Github and Docker (CI/CD Pipeline)
+
+🧠 Explanation:
+web: tells Render this is a web service.
+
+gunicorn is a production-ready server.
+
+app:app refers to:
+
+The Python file name app.py (left side)
+
+The Flask app object app inside app.py (right side)
+
+
+# Procfile
+web: gunicorn app:app
+
+
+# ✅ Step 3: Build and run Docker locally
+docker build -t jroshan/review-app .
+
+# Docker Images
+docker images
+
+# Rund Docker App
+docker run -p 8501:8501 jroshan/review-app
+
+
+## docker port , host
+docker psc
+
+## push docker image into docker container
+docker login ( jroshan)
+
+docker image rm -f review-app
+
+# rename 
+docker tag jroshan/chatbot jroshan/review-app
+
+
+# push 
+docker push jroshan/review-app
+docker push jroshan/review-app:lates
+
+docker pull jroshan/review-app:latest
+
+# final :- 
+docker run -d -p 8080:8080 jroshan/review-app:latest
+
+# ✅ 4. Access in Browser
+http://localhost:5000
+http://127.0.0.1:5000/
+
+
+# ✅ Option 5: Streamlit Community Cloud
+Fastest for basic apps, no Docker required.
+
+Steps:
+Push your Streamlit project to GitHub
+
+Go to streamlit.io/cloud
+
+Click "New App" → choose your repo
+
+Set app.py as the entry file
+
+Click Deploy
