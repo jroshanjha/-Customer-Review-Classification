@@ -1,24 +1,23 @@
-# Base Python image
+# Use Python base image
 FROM python:3.10-slim
 
 # Set environment variable for NLTK
 ENV NLTK_DATA=/app/nltk_data
 
-# Set work directory
+# Set working directory
 WORKDIR /app
 
 # Copy all files
 COPY . .
 
-# Install dependencies
+# Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Download NLTK data
-RUN mkdir -p /app/nltk_data && \
-    python -m nltk.downloader -d /app/nltk_data punkt stopwords
+# Download NLTK corpora (like punkt, stopwords)
+RUN python -m nltk.downloader -d /app/nltk_data punkt stopwords
 
-# Expose Flask or Streamlit port
+# Expose your app port
 EXPOSE 5000
 
-# Run Flask or Streamlit
+# Run the app (Flask or Streamlit)
 CMD ["python", "app.py"]
