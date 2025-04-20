@@ -1,26 +1,24 @@
-# Use official Python image
+# Base Python image
 FROM python:3.10-slim
 
-# Set working directory
+# Set environment variable for NLTK
+ENV NLTK_DATA=/app/nltk_data
+
+# Set work directory
 WORKDIR /app
 
-# Copy app code to container
+# Copy all files
 COPY . .
 
 # Install dependencies
-RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Download NLTK data
-RUN python -m nltk.downloader punkt stopwords
+RUN mkdir -p /app/nltk_data && \
+    python -m nltk.downloader -d /app/nltk_data punkt stopwords
 
-# Expose port (Flask defaults to 5000)
+# Expose Flask or Streamlit port
 EXPOSE 5000
 
-# Set environment variables (optional)
-ENV FLASK_APP=app.py
-ENV FLASK_RUN_HOST=0.0.0.0
-ENV FLASK_RUN_PORT=5000
-
-# Run the Flask app
-CMD ["flask", "run"]
+# Run Flask or Streamlit
+CMD ["python", "app.py"]
