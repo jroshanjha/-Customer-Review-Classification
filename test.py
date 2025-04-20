@@ -15,8 +15,9 @@ logger = set_logger()
 logger.info("✅ Streamlit app started")
 
 # NLTK Setup
-nltk.download('punkt')
-nltk.download('stopwords')
+nltk.download('punkt', quiet=True)
+nltk.download('stopwords', quiet=True)
+download_nltk_data()
 
 # Load vectorizer & model
 with open('models/vectorizer.pkl', 'rb') as file:
