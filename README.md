@@ -156,3 +156,8 @@ Click "New App" → choose your repo
 Set app.py as the entry file
 
 Click Deploy
+
+
+# Challening :- 
+
+mkdir -p ~/.nltk_data

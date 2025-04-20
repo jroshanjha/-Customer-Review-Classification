@@ -14,11 +14,13 @@ import streamlit as st
 from logged import set_logger
 import logging
 logger = set_logger()
-from nltk_resource_downloader import download_nltk_data
-nltk.download('stopwords')
-nltk.download('punkt')
-nltk.download('punkt_tab')
+from nltk_setup import download_nltk_data
+# nltk.download('stopwords')
+# nltk.download('punkt')
+# nltk.download('punkt_tab')
 # stop_words = set(stopwords.words('english'))
+
+nltk.data.path.append("/home/appuser/nltk_data")
 
 # ✅ 1. Load the vectorizer
 with open('models/vectorizer.pkl', 'rb') as file:
